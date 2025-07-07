@@ -1,0 +1,189 @@
+/* Тёмная тема с современным дизайном */
+:root {
+  --bg-color: #121212;
+  --text-color: #e6e6e6;
+  --accent-color: #1e88e5;
+  --secondary-bg: #1e1e1e;
+  --border-color: #333;
+  --hover-bg: #2a2a2a;
+  --input-bg: #252525;
+  --button-bg: #1e88e5;
+  --button-hover: #1565c0;
+  --error-color: #cf6679;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+  text-shadow: 0 0 8px rgba(30, 136, 229, 0.3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--secondary-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.search-form:hover {
+  transform: translateY(-4px);
+}
+
+.search-form select,
+.search-form input {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.search-form select:focus,
+.search-form input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: var(--hover-bg);
+}
+
+.search-form select {
+  flex: 1;
+  min-width: 150px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="white" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.75rem center;
+  appearance: none;
+}
+
+.search-form input {
+  flex: 2;
+  min-width: 200px;
+  padding-left: 2.5rem;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>') no-repeat 0.75rem center;
+}
+
+.search-form button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(30, 136, 229, 0.4);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  background-color: rgba(207, 102, 121, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.no-results {
+  color: var(--text-color);
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  background-color: var(--secondary-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--hover-bg);
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+td {
+  color: var(--text-color);
+}
+
+tr:hover {
+  background-color: var(--hover-bg);
+  transition: background-color 0.2s ease;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .search-form select,
+  .search-form input,
+  .search-form button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 0.6rem;
+  }
+}
